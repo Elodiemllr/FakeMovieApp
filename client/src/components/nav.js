@@ -1,10 +1,16 @@
+import CardGiftCard from "@material-ui/icons/CardGiftCard";
+import MenuIcon from "@material-ui/icons/Menu";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import Search from "@material-ui/icons/Search";
 import React from "react";
 import "../styles/Nav.scss";
 
 const Nav = () => {
     return (
         <div className=" nav  nav__black ">
-            <button className="nav__burger"></button>
+            <button className="nav__burger">
+                <MenuIcon />
+            </button>
             <img src="./image/logo.png" className="nav__logo" alt="logo"></img>
             <nav className="nav__links">
                 <a className="nav__link" href="/">
@@ -20,17 +26,17 @@ const Nav = () => {
 
             <div className="nav__actions">
                 <a className="nav__action" href="/">
-                    Search
+                    <Search />
                 </a>
                 <a className="nav__action" href="/">
                     Direct{" "}
                 </a>
 
                 <a className="nav__action" href="/">
-                    Gift{" "}
+                    <CardGiftCard />
                 </a>
                 <a className="nav__action" href="/">
-                    Notif{" "}
+                    <NotificationsIcon />
                 </a>
 
                 <a className="nav__action" href="/">
