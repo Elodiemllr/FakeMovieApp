@@ -3,9 +3,9 @@ import "../styles/Nav.scss";
 
 const Nav = () => {
     return (
-        <div className=" nav nav__black ">
+        <div className=" nav  nav__black ">
             <button className="nav__burger"></button>
-            <img src="./image/logo.png" alt="logo"></img>
+            <img src="./image/logo.png" className="nav__logo" alt="logo"></img>
             <nav className="nav__links">
                 <a className="nav__link" href="/">
                     Accueil
@@ -34,7 +34,11 @@ const Nav = () => {
                 </a>
 
                 <a className="nav__action" href="/">
-                    <img src="./image/moovieAvatar.png" alt=""></img>
+                    <img
+                        src="./image/moovieAvatar.png"
+                        className="nav__action__avatar"
+                        alt=""
+                    ></img>
                 </a>
             </div>
         </div>
