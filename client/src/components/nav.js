@@ -32,9 +32,9 @@ const Nav = () => {
     return (
         //si toggleMenu / navBlack sont à true alors je leur attribu leur class
         <div
-            className={` nav ${navBlack && "nav__black"} ${
-                toggleMenu && "show"
-            }`}
+            className={` nav ${
+                navBlack || toggleMenu ? "nav__black" : "nav__dont"
+            } ${toggleMenu && "show"}`}
         >
             <button className="nav__burger" onClick={handleClick}>
                 <MenuIcon />

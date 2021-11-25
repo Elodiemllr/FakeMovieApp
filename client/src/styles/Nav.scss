@@ -37,6 +37,7 @@
 
     &__links {
         margin-left: 20px;
+        transition: background-color 0.3s ease-in-out;
         .nav__link {
             text-decoration: none;
             padding: 5px 10px;
