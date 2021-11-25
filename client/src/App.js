@@ -7,7 +7,7 @@ function App() {
             {/* nav bar  */}
             <Nav />
             {/* banner  */}
-
+            <h1 className="test">test</h1>
             {/* cat film liste  */}
 
             {/* video */}

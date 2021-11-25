@@ -1,13 +1,29 @@
-import CardGiftCard from "@material-ui/icons/CardGiftCard";
+import CardGiftCardIcon from "@material-ui/icons/CardGiftcard";
 import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Search from "@material-ui/icons/Search";
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Nav.scss";
 
 const Nav = () => {
+    //nav bar noir quand on scroll
+    //par default elle ne sera pas noir
+    const [navBlack, setNavBlack] = useState(false);
+
+    const transitionNav = () => {
+        //on veut verifier que lorsqu'on scroll verticalelment, si on est au dessus de 100 zlors on met notre class black
+        window.scrollY > 100 ? setNavBlack(true) : setNavBlack(false);
+    };
+
+    useState(() => {
+        //quuand on va scroller on va appeler la function du dessus
+        document.addEventListener("scroll", transitionNav);
+    });
+    // Detection de la transition du scroll
+
+    // Afficher le menu au click sur le burger
     return (
-        <div className=" nav  nav__black ">
+        <div className={` nav ${navBlack && "nav__black"} `}>
             <button className="nav__burger">
                 <MenuIcon />
             </button>
@@ -33,7 +49,7 @@ const Nav = () => {
                 </a>
 
                 <a className="nav__action" href="/">
-                    <CardGiftCard />
+                    <CardGiftCardIcon />
                 </a>
                 <a className="nav__action" href="/">
                     <NotificationsIcon />
