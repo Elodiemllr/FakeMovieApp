@@ -1,3 +1,4 @@
+import Footer from "./components/footer.js";
 import Nav from "./components/nav.js";
 import "./styles/App.scss";
 
@@ -13,8 +14,7 @@ function App() {
             {/* video */}
 
             {/* vue rapide   */}
-
-            {/* footer  */}
+            <Footer />
         </div>
     );
 }
