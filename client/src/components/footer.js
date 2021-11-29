@@ -9,17 +9,17 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="container">
-                <div className="social">
-                    <a className="footer__link">
+                <div className="footer__socials">
+                    <a className="footer__social">
                         <FacebookIcon />
                     </a>
-                    <a className="footer__link">
+                    <a className="footer__social">
                         <InstagramIcon />
                     </a>
-                    <a className="footer__link">
+                    <a className="footer__social">
                         <TwitterIcon />
                     </a>
-                    <a className="footer__link">
+                    <a className="footer__social">
                         <YouTubeIcon />
                     </a>
                 </div>
