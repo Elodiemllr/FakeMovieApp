@@ -28,15 +28,30 @@ const Banner = () => {
         fetchData();
     }, []);
 
+    // pour réduire le nombre de caractère de mon texte "description"
+    function truncateText(string, n) {
+        return string?.length > n
+            ? string.substr(0, n - 1) + "..."
+            : "No Description";
+    }
+
+    const bannerStyle = {
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+    };
     console.log(movie);
     return (
-        <header className="banner">
+        <header className="banner" style={bannerStyle}>
             <div className="banner__content">
                 <h1 className="banner__title">
                     {" "}
                     {movie?.title || movie?.original_title}{" "}
                 </h1>
-                <p className="banner__description">lorem </p>
+                <p className="banner__description">
+                    {" "}
+                    {truncateText(movie?.overview, 100)}
+                </p>
                 <div className="banner__buttons">
                     <button className="banner__button banner__button__play">
                         {" "}
