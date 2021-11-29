@@ -1,9 +1,34 @@
 import HelpOutLineIcon from "@material-ui/icons/HelpOutline";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import requests from "../config/data/Request.js";
 import "../styles/Banner.scss";
 
 const Banner = () => {
+    //on doit trouver un film aléatoire par rapport à l'ensemble des films
+    const { movie, setMovie } = useState([]);
+
+    //vu qu'on utilisé axios, besoin du useEffect
+    useEffect(() => {
+        async function fetchData() {
+            //on recup notre url  qu'on stock dans request
+            const request = await axios.get(requests.fetchTrending);
+
+            //on va chercher un film
+            setMovie(
+                //le chemin au niveau des data de moviedb , ou il y'aura tout nos results
+                request.data.results[
+                    //aléatoire donc math avec floor + random
+                    Math.floor(Math.random() * request.data.results.length - 1)
+                ]
+            );
+        }
+        //on active la function
+        fetchData();
+    }, []);
+
+    console.log(movie);
     return (
         <header className="banner">
             <div className="banner__content">
