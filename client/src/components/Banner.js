@@ -1,3 +1,5 @@
+import HelpOutLineIcon from "@material-ui/icons/HelpOutline";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import React from "react";
 import "../styles/Banner.scss";
 
@@ -10,11 +12,10 @@ const Banner = () => {
                 <div className="banner__buttons">
                     <button className="banner__button banner__button__play">
                         {" "}
-                        Lecture{" "}
+                        <PlayArrowIcon /> Lecture{" "}
                     </button>{" "}
                     <button className="banner__button">
-                        {" "}
-                        Plus d'infos{" "}
+                        <HelpOutLineIcon /> Plus d'infos{" "}
                     </button>{" "}
                 </div>
             </div>
