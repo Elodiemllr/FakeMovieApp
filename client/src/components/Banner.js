@@ -7,7 +7,7 @@ import "../styles/Banner.scss";
 
 const Banner = () => {
     //on doit trouver un film aléatoire par rapport à l'ensemble des films
-    const { movie, setMovie } = useState([]);
+    const [movie, setMovie] = useState([]);
 
     //vu qu'on utilisé axios, besoin du useEffect
     useEffect(() => {
@@ -15,7 +15,7 @@ const Banner = () => {
             //on recup notre url  qu'on stock dans request
             const request = await axios.get(requests.fetchTrending);
 
-            //on va chercher un film
+            //on va chercher un film, puis celui choisit sera stocké dans movie
             setMovie(
                 //le chemin au niveau des data de moviedb , ou il y'aura tout nos results
                 request.data.results[
@@ -32,7 +32,10 @@ const Banner = () => {
     return (
         <header className="banner">
             <div className="banner__content">
-                <h1 className="banner__title"> title </h1>
+                <h1 className="banner__title">
+                    {" "}
+                    {movie?.title || movie?.original_title}{" "}
+                </h1>
                 <p className="banner__description">lorem </p>
                 <div className="banner__buttons">
                     <button className="banner__button banner__button__play">
