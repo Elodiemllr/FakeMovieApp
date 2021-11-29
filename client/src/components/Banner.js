@@ -46,7 +46,7 @@ const Banner = () => {
             <div className="banner__content">
                 <h1 className="banner__title">
                     {" "}
-                    {movie?.title || movie?.original_title}{" "}
+                    {movie?.title || movie?.original_title || movie?.name}{" "}
                 </h1>
                 <p className="banner__description">
                     {" "}
