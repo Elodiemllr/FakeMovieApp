@@ -1,3 +1,4 @@
+import Banner from "./components/Banner.js";
 import Footer from "./components/footer.js";
 import Nav from "./components/nav.js";
 import "./styles/App.scss";
@@ -8,7 +9,7 @@ function App() {
             {/* nav bar  */}
             <Nav />
             {/* banner  */}
-            <h1 className="test">test</h1>
+            <Banner />
             {/* cat film liste  */}
 
             {/* video */}
