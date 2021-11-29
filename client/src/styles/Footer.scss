@@ -3,6 +3,11 @@
     padding: 2rem 1rem;
     font-size: 0.8rem;
 
+    .container {
+        max-width: 980px;
+        margin: 0 auto;
+    }
+
     a {
         text-decoration: none;
         //hérité du parent
