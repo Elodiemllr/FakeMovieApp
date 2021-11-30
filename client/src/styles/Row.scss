@@ -4,6 +4,7 @@
 
     &__title {
         font-size: 1.7rem;
+        padding: 0 0.5rem;
     }
 
     &__images {
@@ -14,6 +15,25 @@
         width: 100%;
         padding: 0.5rem 0;
         .row__image {
+            width: 300px;
+            padding: 0.5rem;
+            transition: transform 0.3s ease-in;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
         }
+    }
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        background-color: #111;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        background-clip: padding-box;
+        border-radius: 9px;
+        border: 3px solid transparent;
+        box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
     }
 }

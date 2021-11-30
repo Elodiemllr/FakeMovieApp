@@ -25,11 +25,15 @@ const Row = ({ title, fetchUrl }) => {
         <div className="row">
             <h2 className="row__title">title </h2>
             <div className="row__images">
-                {movies.maps((movie) => (
+                {movies.map((movie) => (
                     <div key={movie.id}>
                         <img
                             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                            alt="movie image"
+                            alt="{
+                                movie?.title ||
+                                movie?.original_title ||
+                                movie?.name
+                            }"
                             className="row__image"
                         />
                     </div>
