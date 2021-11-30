@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../styles/Row.scss";
-const Row = ({ title, fetchUrl }) => {
+const Row = ({ title, fetchUrl, isPoster }) => {
+    //isPoster : car certaines affiche sont en format poster
+
     //on recup tout les films
     const [movies, setMovies] = useState([]);
 
@@ -23,19 +25,31 @@ const Row = ({ title, fetchUrl }) => {
 
     return (
         <div className="row">
-            <h2 className="row__title">title </h2>
+            <h2 className="row__title">{title} </h2>
             <div className="row__images">
                 {movies.map((movie) => (
                     <div key={movie.id}>
-                        <img
-                            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                            alt="{
+                        {isPoster ? (
+                            <img
+                                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                                alt="{
                                 movie?.title ||
                                 movie?.original_title ||
                                 movie?.name
                             }"
-                            className="row__image"
-                        />
+                                className="row__image"
+                            />
+                        ) : (
+                            <img
+                                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                                alt="{
+                                movie?.title ||
+                                movie?.original_title ||
+                                movie?.name
+                            }"
+                                className="row__image"
+                            />
+                        )}
                     </div>
                 ))}
             </div>{" "}

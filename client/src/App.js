@@ -14,6 +14,7 @@ function App() {
             <Row
                 title="Netflix Original Movies"
                 fetchUrl={Requests.fetchNetflixOriginals}
+                isPoster={true}
             />
 
             <Row title="Tendance Actuelles" fetchUrl={Requests.fetchTrending} />
