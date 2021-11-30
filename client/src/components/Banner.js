@@ -7,12 +7,6 @@ import "../styles/Banner.scss";
 import QuickView from "./QuickView.js";
 
 const Banner = () => {
-    const bannerStyle = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-    };
-
     //on doit trouver un film aléatoire par rapport à l'ensemble des films
     const [movie, setMovie] = useState([]);
 
@@ -50,7 +44,13 @@ const Banner = () => {
         popUp ? setPopUp(false) : setPopUp(true);
     }
 
-    console.log(movie);
+    const bannerStyle = {
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+    };
+
+    console.log(popUp);
     return (
         <header className="banner" style={bannerStyle}>
             <div className="banner__content">
@@ -67,7 +67,10 @@ const Banner = () => {
                         {" "}
                         <PlayArrowIcon /> Lecture{" "}
                     </button>{" "}
-                    <button className="banner__button" popUp={handleClickPopup}>
+                    <button
+                        className="banner__button"
+                        onClick={handleClickPopup}
+                    >
                         <HelpOutLineIcon /> Plus d'infos{" "}
                     </button>{" "}
                 </div>
