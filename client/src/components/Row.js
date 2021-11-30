@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../styles/Row.scss";
 const Row = ({ title, fetchUrl, isPoster }) => {
-    //isPoster : car certaines affiche sont en format poster
+    const baseUrl = "https://image.tmdb.org/t/p/original";
 
     //on recup tout les films
     const [movies, setMovies] = useState([]);
@@ -31,7 +31,7 @@ const Row = ({ title, fetchUrl, isPoster }) => {
                     <div key={movie.id}>
                         {isPoster ? (
                             <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                                src={`${baseUrl}/${movie.poster_path}`}
                                 alt="{
                                 movie?.title ||
                                 movie?.original_title ||
@@ -41,7 +41,7 @@ const Row = ({ title, fetchUrl, isPoster }) => {
                             />
                         ) : (
                             <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                                src={`${baseUrl}/${movie.backdrop_path}`}
                                 alt="{
                                 movie?.title ||
                                 movie?.original_title ||
