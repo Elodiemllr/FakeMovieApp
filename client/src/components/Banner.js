@@ -4,10 +4,20 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import requests from "../config/data/Request.js";
 import "../styles/Banner.scss";
+import QuickView from "./QuickView.js";
 
 const Banner = () => {
+    const bannerStyle = {
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+    };
+
     //on doit trouver un film aléatoire par rapport à l'ensemble des films
     const [movie, setMovie] = useState([]);
+
+    //pop up de quickview, par default false car elle sera fermé
+    const [popUp, setPopUp] = useState(false);
 
     //vu qu'on utilisé axios, besoin du useEffect
     useEffect(() => {
@@ -35,11 +45,11 @@ const Banner = () => {
             : "No Description";
     }
 
-    const bannerStyle = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-    };
+    //function pour affichert la quickview
+    function handleClickPopup() {
+        popUp ? setPopUp(false) : setPopUp(true);
+    }
+
     console.log(movie);
     return (
         <header className="banner" style={bannerStyle}>
@@ -57,11 +67,17 @@ const Banner = () => {
                         {" "}
                         <PlayArrowIcon /> Lecture{" "}
                     </button>{" "}
-                    <button className="banner__button">
+                    <button className="banner__button" popUp={handleClickPopup}>
                         <HelpOutLineIcon /> Plus d'infos{" "}
                     </button>{" "}
                 </div>
             </div>
+            <QuickView
+                bannerStyle={bannerStyle}
+                movie={movie}
+                popUp={handleClickPopup}
+                popUpStatut={popUp}
+            />
         </header>
     );
 };
