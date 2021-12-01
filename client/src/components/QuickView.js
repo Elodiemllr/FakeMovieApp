@@ -1,4 +1,5 @@
 import CancelIcon from "@material-ui/icons/Cancel";
+import React from "react";
 import "../styles/QuickView.scss";
 
 const QuickView = ({ bannerStyle, movie, popUp, popUpStatut }) => {
