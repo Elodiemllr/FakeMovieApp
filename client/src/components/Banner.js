@@ -2,10 +2,10 @@ import HelpOutLineIcon from "@material-ui/icons/HelpOutline";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import requests from "../config/data/Request.js";
 import "../styles/Banner.scss";
 import QuickView from "./QuickView.js";
-
 const Banner = () => {
     //on doit trouver un film aléatoire par rapport à l'ensemble des films
     const [movie, setMovie] = useState([]);
@@ -64,8 +64,9 @@ const Banner = () => {
                 </p>
                 <div className="banner__buttons">
                     <button className="banner__button banner__button__play">
-                        {" "}
-                        <PlayArrowIcon /> Lecture{" "}
+                        <Link to={`/video/${movie?.id}`}>
+                            <PlayArrowIcon /> Lecture{" "}
+                        </Link>
                     </button>{" "}
                     <button
                         className="banner__button"

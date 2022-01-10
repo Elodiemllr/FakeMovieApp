@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Row.scss";
+
 const Row = ({ title, fetchUrl, isPoster }) => {
     const baseUrl = "https://image.tmdb.org/t/p/original";
 
@@ -29,27 +31,30 @@ const Row = ({ title, fetchUrl, isPoster }) => {
             <div className="row__images">
                 {movies.map((movie) => (
                     <div key={movie.id}>
-                        {isPoster ? (
-                            <img
-                                src={`${baseUrl}/${movie.poster_path}`}
-                                alt="{
+                        {" "}
+                        <Link to={`/video/${movie?.id}`}>
+                            {isPoster ? (
+                                <img
+                                    src={`${baseUrl}/${movie.poster_path}`}
+                                    alt="{
                                 movie?.title ||
                                 movie?.original_title ||
                                 movie?.name
                             }"
-                                className="row__image"
-                            />
-                        ) : (
-                            <img
-                                src={`${baseUrl}/${movie.backdrop_path}`}
-                                alt="{
+                                    className="row__image"
+                                />
+                            ) : (
+                                <img
+                                    src={`${baseUrl}/${movie.backdrop_path}`}
+                                    alt="{
                                 movie?.title ||
                                 movie?.original_title ||
                                 movie?.name
                             }"
-                                className="row__image"
-                            />
-                        )}
+                                    className="row__image"
+                                />
+                            )}{" "}
+                        </Link>
                     </div>
                 ))}
             </div>{" "}
