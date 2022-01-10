@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Navigate,
+    Route,
+    Routes,
+} from "react-router-dom";
 import Banner from "./components/Banner.js";
 import Footer from "./components/footer.js";
 import Nav from "./components/nav.js";
@@ -42,9 +47,10 @@ function App() {
                     />
 
                     <Route path="/video/:id" element={Video}>
-                        {/*   <Route path="*">
-                            <Navigate to="/" />
-                        </Route>*/}
+                        <Route
+                            path="*"
+                            element={<Navigate replace to="/" />}
+                        ></Route>
                     </Route>
                 </Routes>
             </Router>
